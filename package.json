@@ -1,13 +1,18 @@
 {
-  "name": "react-from-scratch",
+  "name": "react-template-from-scratch",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "build": "webpack",
     "start": "webpack serve"
   },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.13.0",
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
@@ -25,10 +30,5 @@
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "@babel/preset-typescript": "^7.13.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
   }
 }
