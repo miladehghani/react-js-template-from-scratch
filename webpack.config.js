@@ -2,13 +2,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const svgToMiniDataURI = require("mini-svg-data-uri");
 
+/**@type{import('webpack').Configuration} */
 module.exports = {
   mode: "development",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".css"],
   },
   entry: {
-    index: "./src/index.tsx",
+    index: "./src/index.js",
   },
   output: {
     filename: "[name].bundle.js",
