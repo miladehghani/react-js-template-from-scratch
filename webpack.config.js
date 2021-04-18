@@ -1,13 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const svgToMiniDataURI = require("mini-svg-data-uri");
 
 module.exports = {
   mode: "development",
   resolve: {
-    extensions: [".js", ".jsx", ".css", ".png", ".svg", ".jpg", ".jpeg"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".css"],
   },
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.tsx",
   },
   output: {
     filename: "[name].bundle.js",
@@ -25,21 +26,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.m?jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
+        use: ["babel-loader"],
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: ["ts-loader"],
       },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
         type: "asset/resource",
       },
       {
